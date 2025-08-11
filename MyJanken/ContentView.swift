@@ -13,8 +13,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             if jankenNumber == 0 {
                 Text("これからじゃんけんをします！")
+                    .padding(.bottom)
             } else if jankenNumber == 1 {
                 // グー画像を指定
                 Image(.gu)
@@ -22,20 +25,26 @@ struct ContentView: View {
                     .resizable()
                 // 画面に収まるように、アスペクト比（縦横比）を維持する指定
                     .scaledToFit()
+                Spacer()
                 // じゃんけんの種類を指定
                 Text("グー")
+                    .padding(.bottom)
             } else if jankenNumber == 2 {
                 // チョキ画像を指定
                 Image(.choki)
                     .resizable()
                     .scaledToFit()
+                Spacer()
                 Text("チョキ")
+                    .padding(.bottom)
             } else {
                 // パー画像を指定
                 Image(.pa)
                     .resizable()
                     .scaledToFit()
+                Spacer()
                 Text("パー")
+                    .padding(.bottom)
             }
             
             Button(action: {
@@ -51,7 +60,12 @@ struct ContentView: View {
                 // 新しいじゃんけんの結果を格納
                 jankenNumber = newJankenNumber
             }, label: {
-                Text("じゃんけんをする")
+                Text("じゃんけんをする！")
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 100)
+                    .font(.title)
+                    .background(.pink)
+                    .foregroundColor(.white)
             })
         }
     }
